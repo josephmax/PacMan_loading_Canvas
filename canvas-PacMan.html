@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function () {
+//            context.fillRect(10,10,500,500);
+
+
+
+
+            /*var startA=(deg)*Math.PI;
+            var endA=startA+Math.PI;
+            cxt.beginPath();
+            cxt.arc(100, 50, 50, startA, endA, false);
+            cxt.closePath();
+            cxt.fill();
+            cxt.beginPath();
+            cxt.arc(100, 50, 50, -startA, -endA, true);
+            cxt.closePath();
+            cxt.fill();
+*/
+            var cxt = document.getElementById("layout").getContext("2d");
+            cxt.fillStyle = "#fbba06";
+            cxt.fillRect(150,50,10,10);
+            cxt.fillRect(170,50,10,10);
+            cxt.fillRect(190,50,10,10);
+            cxt.fillRect(210,50,10,10);
+            cxt.fillRect(230,50,10,10);
+            cxt.fillRect(250,50,10,10);
+            cxt.fillRect(270,50,10,10); 
+
+            interval=setInterval("eat()",1);
+        };
+        var d4t=0;
+        var d4m=0;
+        var deg;
+        var move;
+        var interval;
+        function eat(){
+            d4t+=100;
+            d4m+=10;
+            deg=1/3*Math.abs(Math.sin(d4t*0.017*(Math.PI/180)));
+            move=200*Math.abs(Math.sin(d4m*0.017*(Math.PI/180)));
+            var cxt = document.getElementById("layout").getContext("2d");
+            cxt.fillStyle = "#fbba06";
+
+            cxt.clearRect(0,0,1000,1000);
+            cxt.fillRect(150,50,10,10);
+            cxt.fillRect(170,50,10,10);
+            cxt.fillRect(190,50,10,10);
+            cxt.fillRect(210,50,10,10);
+            cxt.fillRect(230,50,10,10);
+            cxt.fillRect(250,50,10,10);
+            cxt.fillRect(270,50,10,10);
+            cxt.clearRect(0,0,100+move,100);
+            cxt.beginPath();
+            var startA=(deg)*Math.PI;
+            var endA=startA+Math.PI;
+            cxt.arc(100+move, 50, 50, startA, endA, false);
+            cxt.closePath();
+            cxt.fill();
+            cxt.beginPath();
+            cxt.arc(100+move, 50, 50, -startA, -endA, true);
+            cxt.closePath();
+            cxt.fill();
+            cxt.fillStyle="#FFFFFF";
+            cxt.beginPath();
+            cxt.arc(100+move,20,5,0,2*Math.PI,false);
+            cxt.closePath();
+            cxt.fill();
+
+            cxt.fillStyle="hotpink";
+            cxt.moveTo(80+move,0);
+            cxt.beginPath();
+            cxt.lineTo(60+move,40);
+            cxt.quadraticCurveTo(50+move,40,45+move,20);
+            cxt.lineTo(90+move,20);
+            cxt.quadraticCurveTo(98+move,20,78+move,0);
+            cxt.closePath();
+            cxt.fill();
+        }
+    </script>
+    <style>
+        body{
+        }
+    </style>
+</head>
+<body>
+<canvas id="layout" width="1000">
+</canvas>
+</body>
+</html>
